@@ -1,0 +1,59 @@
+{
+  "name": "cr7-mindset",
+  "version": "1.0.1",
+  "private": true,
+  "description": "CR7 Mindset local-first goals and habit app",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis",
+    "dist:portable": "electron-builder --win portable",
+    "android:sync": "cap sync android",
+    "android:open": "cap open android",
+    "android:setup": "node scripts/android-setup.cjs",
+    "android:build-debug": "npm run android:sync && cd android && gradlew.bat assembleDebug"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/cli": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
+    "electron": "^36.3.2",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.cr7universe.mindset",
+    "productName": "CR7 Mindset",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "index.html",
+      "assets/**/*",
+      "desktop/**/*",
+      "package.json",
+      "capacitor.config.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico"
+    },
+    "asar": true,
+    "mac": {
+      "icon": "assets/icon.png"
+    },
+    "linux": {
+      "icon": "assets"
+    }
+  }
+}

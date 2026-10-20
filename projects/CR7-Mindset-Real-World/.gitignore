@@ -1,0 +1,9 @@
+node_modules/
+release/
+android/
+web/
+.DS_Store
+*.log
+*.keystore
+*.jks
+local.properties

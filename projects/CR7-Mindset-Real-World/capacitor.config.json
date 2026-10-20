@@ -1,0 +1,9 @@
+{
+  "appId": "com.cr7universe.mindset",
+  "appName": "CR7 Mindset",
+  "webDir": "web",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": false
+  }
+}
